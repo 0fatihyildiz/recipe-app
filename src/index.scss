@@ -1,0 +1,17 @@
+@import url(/src/assets/styles/fonts.scss);
+@import url(/src/assets/styles/sanitize.scss);
+
+:root {
+    --primary: #FFD43D;
+}
+
+* {
+    font-family: 'Satoshi', sans-serif !important;
+    font-weight: 500;
+}
+
+.main {
+    max-width: 80rem;
+    width: 100%;
+    margin: 0 auto;
+}
