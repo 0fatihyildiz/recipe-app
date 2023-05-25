@@ -1,7 +1,35 @@
 .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 15px 20px;
+
+  .navigate {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    width: 100%;
-    padding: 10px 5px;
+
+    .links {
+        margin-left: 100px;
+        display: flex;
+        align-items: center;
+
+        .link {
+            font-weight: 600 !important;
+            color: inherit;
+        }
+
+        .link:nth-child(even) {
+            margin: 0 10px;
+        }
+    }
+  }
+
+  .actions {
+    display:flex;
+
+    button:nth-child(even) {
+        margin: 0 10px;
+    }
+  }
 }
