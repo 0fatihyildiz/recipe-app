@@ -1,36 +1,30 @@
 import React from "react";
-import { BrowserRouter , RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ReactDOM from "react-dom/client";
 
-import Header from "./components/header/";
+import Root from "./routes/root.tsx";
+import MyRecipe from "./routes/myRecipe.tsx";
+import ErrorPage from "./error-page";
 
-import Home from "./pages/";
-import MyRecipe from "./pages/myRecipe.tsx";
-
-import 'virtual:uno.css'
+import "virtual:uno.css";
 import "./index.scss";
 
-
-//TODO: Fix This
-
-const router = BrowserRouter([
+const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
-  },
-  {
-    path: "/myRecipe",
-    element: <MyRecipe />,
+    element: <Root />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/myRecipe",
+        element: <MyRecipe />,
+      },
+    ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <div className="main">
-      <Header />
-      <div className="content">
-        <RouterProvider router={router} />
-      </div>
-    </div>
+    <RouterProvider router={router} />
   </React.StrictMode>
 );

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Button } from "@mui/material-next";
 import { IconButton } from "@mui/material";
 import { Icon } from "@iconify/react";
@@ -19,15 +19,22 @@ export default function Header() {
         </Link>
         <div className="links">
           {menu.map(({ name, path }) => (
-            <Button
+            <NavLink
               key={name}
-              size="small"
-              color="primary"
-              variant="text"
-              className="link"
+              to={path}
+              className={({ isActive, isPending }) =>
+                isActive ? "active" : isPending ? "pending" : ""
+              }
             >
-              {name}
-            </Button>
+              <Button
+                size="small"
+                color="primary"
+                variant="text"
+                className="link"
+              >
+                {name}
+              </Button>
+            </NavLink>
           ))}
         </div>
       </div>
