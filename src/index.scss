@@ -1,6 +1,3 @@
-@import url(/src/assets/styles/fonts.scss);
-@import url(/src/assets/styles/sanitize.scss);
-
 :root {
   --primary: #ffd43d;
   --md-sys-color-primaryChannel: #ffd43d;
@@ -10,7 +7,10 @@
 }
 
 * {
-  font-family: "Satoshi", sans-serif !important;
+  font-family: "Satoshi", ui-sans-serif, system-ui, -apple-system,
+  BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
+  sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+  "Noto Color Emoji" !important;
   font-weight: 500;
 }
 
