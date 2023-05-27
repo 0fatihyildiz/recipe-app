@@ -2,12 +2,18 @@ interface Props {
   size?: number;
   dark?: boolean;
   mark?: boolean;
+  color?: string;
 }
 
-export default function Logo({ size = 24, dark = false, mark = true }: Props) {
+export default function Logo({
+  size = 24,
+  dark = false,
+  mark = true,
+  color = "var(--primary)",
+}: Props) {
   return (
     <svg
-      className="logo"
+      className="Logo"
       height={size}
       viewBox={`0 0 ${!mark ? "60 60" : "310 60"}`}
       fill="none"
@@ -15,15 +21,15 @@ export default function Logo({ size = 24, dark = false, mark = true }: Props) {
     >
       <path
         d="M43.3754 26.0413C36.1887 26.0413 30.3628 20.2117 30.3628 13.0206C30.3628 5.82954 36.1887 0 43.3754 0C50.5621 0 56.388 5.82954 56.388 13.0206C56.388 20.2117 50.5621 26.0413 43.3754 26.0413Z"
-        fill="var(--primary)"
+        fill={color}
       />
       <path
         d="M13.0126 56.4228C5.82595 56.4228 0 50.5933 0 43.4022C0 36.211 5.82595 30.3815 13.0126 30.3815C20.1993 30.3815 26.0253 36.211 26.0253 43.4022C26.0253 50.5933 20.1993 56.4228 13.0126 56.4228Z"
-        fill="var(--primary)"
+        fill={color}
       />
       <path
         d="M13.0126 26.0413C5.82595 26.0413 0 20.2117 0 13.0206C0 5.82954 5.82595 0 13.0126 0C20.1993 0 26.0253 5.82954 26.0253 13.0206C26.0253 20.2117 20.1993 26.0413 13.0126 26.0413Z"
-        fill="var(--primary)"
+        fill={color}
       />
       {mark && (
         <path

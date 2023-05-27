@@ -1,15 +1,19 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ReactDOM from "react-dom/client";
 
 import Root from "./routes/root";
-import Home from "./routes/index";
-import MyRecipe from "./routes/myRecipe";
+
+import Loading from "./components/app/preLoad";
 import ErrorPage from "./error-page";
 
 import "virtual:uno.css";
-import '@unocss/reset/tailwind.css'
+import "@unocss/reset/tailwind.css";
 import "./index.scss";
+
+const Home = React.lazy(() => import("./routes/index"));
+const MyRecipe = React.lazy(() => import("./routes/myRecipe"));
+const MyIngridients = React.lazy(() => import("./routes/myIngridients"));
 
 const router = createBrowserRouter([
   {
@@ -25,12 +29,18 @@ const router = createBrowserRouter([
         path: "/myRecipe",
         element: <MyRecipe />,
       },
+      {
+        path: "/myIngridients",
+        element: <MyIngridients />,
+      },
     ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Suspense fallback={<Loading/>}>
+      <RouterProvider router={router} />
+    </Suspense>
   </React.StrictMode>
 );

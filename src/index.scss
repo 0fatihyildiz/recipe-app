@@ -11,29 +11,25 @@
   BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
   sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
   "Noto Color Emoji" !important;
-  font-weight: 500;
+  font-weight: 500 !important;
 }
 
 a {
-  text-decoration: none;
-  color: inherit;
+  @apply text-inherit underline-0;
 }
 
 h1 {
-  font-weight: 600 !important;
+  @apply font-medium;
 }
 
 .main {
-  max-width: 80rem;
-  width: 100%;
-  margin: 0 auto;
+  @apply max-w-7xl w-full mx-auto;
 }
 
 .content {
-  margin: 0 20px;
+  @apply mx-4
 }
 
 .css-18i8gte-MuiButton-root {
-  font-size: 0.8rem !important;
-  font-weight: 700 !important;
+  @apply text-sm font-bold;
 }
