@@ -1,26 +1,28 @@
-import React, { useState } from "react";
+import React from "react";
 import Portal from "../../../app/portal";
-import { Modal, Box, Typography } from "@mui/material";
+import { Modal, Box, TextField, ThemeCssVar} from "@mui/material";
 
+interface Props {
+  open: boolean;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-const AuthModal = () => {
-  const [open, setOpen] = useState(false);
+const inputStyle: React.CSSProperties = {
+  width: "100%",
+  fontSize: "12px",
+}
 
+const AuthModal = ({ open, setOpen }: Props) => {
   return (
     <Portal target="body">
       <Modal
         open={open}
         onClose={() => setOpen(false)}
         aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography>
+        aria-describedby="modal-modal-description" sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+        <Box sx={{ backgroundColor: "white", maxWidth: "500px", width: "100%", borderRadius: "10px", padding: "20px 25px",  display: "flex", flexDirection: "column", gap: "20px"  }}>
+          <TextField label="Email" sx={inputStyle} size="small" />
+          <TextField label="Password" sx={inputStyle} size="small" />
         </Box>
       </Modal>
     </Portal>
