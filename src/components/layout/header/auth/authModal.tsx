@@ -3,33 +3,14 @@ import Portal from "../../../app/portal";
 import { Modal, Box, Tab, SxProps } from "@mui/material";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import { Icon } from "@iconify/react";
-import {
-  PrimaryButton,
-  OutlinedButton,
-} from "../../../common/material/styles/button";
-import { PrimaryTextField } from "../../../common/material/styles/textField";
-
-import { Formik, Form, Field } from "formik";
-import * as Yup from "yup";
+import { OutlinedButton } from "../../../common/material/styles/button";
+import SignIn from "./signInForm";
+import SignUp from "./signUpForm";
 
 interface Props {
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
-
-const SigninSchema = Yup.object().shape({
-  email: Yup.string().email("Invalid email").required("Required"),
-  password: Yup.string().required("Required"),
-});
-
-const SignupSchema = Yup.object().shape({
-  email: Yup.string().email("Invalid email").required("Required"),
-  password: Yup.string().required("Required"),
-  confirmPassword: Yup.string().oneOf(
-    [Yup.ref("password")],
-    "Passwords must match"
-  ),
-});
 
 const TabPanelStyle: SxProps = {
   width: "100%",
@@ -91,76 +72,10 @@ const AuthModal = ({ open, setOpen }: Props) => {
               </TabList>
             </Box>
             <TabPanel value="1" sx={TabPanelStyle}>
-              <Formik
-                initialValues={{
-                  email: "",
-                  password: "",
-                }}
-                validationSchema={SigninSchema}
-                onSubmit={(values) => {
-                  console.log(values);
-                }}
-              >
-                {({ errors, touched }) => (
-                  <Form className="flex flex-col space-y-4">
-                    <Field
-                      label="Email"
-                      name="email"
-                      variant="outlined"
-                      size="small"
-                      type="email"
-                      color="primary"
-                      autoComplete="email"
-                      component={PrimaryTextField}
-                      error={!!errors.email && touched.email}
-                      helperText={errors.email}
-                    />
-                    <Field
-                      label="Password"
-                      name="password"
-                      variant="outlined"
-                      size="small"
-                      type="password"
-                      color="primary"
-                      autoComplete="current-password"
-                      component={PrimaryTextField}
-                      error={!!errors.password && touched.password}
-                      helperText={touched.password ?? errors.password}
-                    />
-                    <PrimaryButton
-                      variant="contained"
-                      color="primary"
-                      size="medium"
-                      type="submit"
-                    >
-                      Sign In
-                    </PrimaryButton>
-                  </Form>
-                )}
-              </Formik>
+              <SignIn />
             </TabPanel>
             <TabPanel value="2" sx={TabPanelStyle}>
-              <PrimaryTextField
-                label="Email"
-                variant="outlined"
-                size="small"
-                type="email"
-                color="primary"
-              />
-              <PrimaryTextField
-                label="Password"
-                variant="outlined"
-                size="small"
-                type="password"
-                color="primary"
-              />
-              <PrimaryTextField
-                label="Confirm Password"
-                variant="outlined"
-                size="small"
-                type="password"
-                color="primary"
-              />
+              <SignUp />
             </TabPanel>
           </TabContext>
         </Box>
