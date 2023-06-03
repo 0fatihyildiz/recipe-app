@@ -1,6 +1,6 @@
 :root {
-  --primary: #ffd43d;
-  --md-sys-color-primaryChannel: #ffd43d;
+  --primary: 255, 179, 0;
+  --md-sys-color-primaryChannel: rgb(var(--primary));
   --md-sys-color-outline: #f1f2f4;
   --md-sys-color-tertiary: #303030;
   --Button-radius: 10px;

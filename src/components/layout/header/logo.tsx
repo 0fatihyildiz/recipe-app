@@ -9,7 +9,7 @@ export default function Logo({
   size = 24,
   dark = false,
   mark = true,
-  color = "var(--primary)",
+  color = "rgb(var(--primary))",
 }: Props) {
   return (
     <svg

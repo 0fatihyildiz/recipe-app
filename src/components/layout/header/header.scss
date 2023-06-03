@@ -5,11 +5,15 @@
     @apply flex items-center;
 
     .links {
-        @apply ml-100px flex items-center space-x-2;
+      @apply ml-100px flex items-center space-x-2;
+      
+      .link {
+        @apply rounded-full #{!important};
 
-        .link {
-            @apply font-bold text-inherit
+        &.active {
+          @apply bg-[rgba(var(--primary),0.3)] text-zinc-900 font-semibold;
         }
+      }
     }
   }
   .actions {
