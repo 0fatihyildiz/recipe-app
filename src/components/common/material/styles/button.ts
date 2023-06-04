@@ -3,6 +3,7 @@ import { amber, grey } from "@mui/material/colors";
 
 const PrimaryButton = styled(Button)<ButtonProps>(() => ({
   boxShadow: "none",
+  fontWeight: 500,
   textTransform: "inherit",
   borderRadius: "10px",
   backgroundColor: amber[100],
@@ -16,6 +17,7 @@ const PrimaryButton = styled(Button)<ButtonProps>(() => ({
 
 const OutlinedButton = styled(Button)<ButtonProps>(() => ({
   color: grey[900],
+  fontWeight: 500,
   border: `1px solid ${grey[100]}`,
   textTransform: "inherit",
   borderRadius: "10px",

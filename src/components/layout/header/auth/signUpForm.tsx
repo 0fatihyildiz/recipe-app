@@ -65,7 +65,7 @@ export default function SignUp() {
             autoComplete="confirm-password"
             as={PrimaryTextField}
             error={!!errors.confirmPassword && touched.confirmPassword}
-            helperText={touched.password && errors.confirmPassword}
+            helperText={touched.confirmPassword && errors.confirmPassword}
           />
           <PrimaryButton
             variant="contained"
