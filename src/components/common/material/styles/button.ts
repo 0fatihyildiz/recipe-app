@@ -10,7 +10,7 @@ const PrimaryButton = styled(Button)<ButtonProps>(() => ({
   color: "rgba(0, 0, 0, 0.8)",
   "&:hover": {
     boxShadow: "none",
-    backgroundColor: amber[300],
+    backgroundColor: amber[100],
     color: "black",
   },
 }));
