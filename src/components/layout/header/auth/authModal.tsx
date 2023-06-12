@@ -37,7 +37,7 @@ const AuthModal = ({ open, setOpen }: Props) => {
         onClose={() => setOpen(false)}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
-        sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+        sx={{ display: "flex", justifyContent: "center", alignItems: "center", padding: "0 20px" }}
       >
         <Box
           sx={{

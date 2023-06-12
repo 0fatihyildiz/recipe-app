@@ -3,6 +3,7 @@ interface Props {
   dark?: boolean;
   mark?: boolean;
   color?: string;
+  className?: string;
 }
 
 export default function Logo({
@@ -10,10 +11,11 @@ export default function Logo({
   dark = false,
   mark = true,
   color = "rgb(var(--primary))",
+  className = "",
 }: Props) {
   return (
     <svg
-      className="Logo"
+      className={`Logo ${className}`}
       height={size}
       viewBox={`0 0 ${!mark ? "60 60" : "310 60"}`}
       fill="none"

@@ -22,17 +22,15 @@ function FilterButton() {
   const anchorRef = useRef<HTMLButtonElement>(null);
   const [selectedIndex, setSelectedIndex] = useState(1);
 
-  const handleClick = () => {
-    console.info(`You clicked ${options[selectedIndex]}`);
-  };
+  // const handleClick = () => {
+  //   console.info(`You clicked ${options[selectedIndex]}`);
+  // };
 
-  const handleMenuItemClick = (
-    event: React.MouseEvent<HTMLLIElement, MouseEvent>,
-    index: number
-  ) => {
+  function handleMenuItemClick(_event: React.MouseEvent<HTMLLIElement, MouseEvent>,
+    index: number) {
     setSelectedIndex(index);
     setOpen(false);
-  };
+  }
 
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
@@ -67,7 +65,6 @@ function FilterButton() {
         }}
         open={open}
         anchorEl={anchorRef.current}
-        role={undefined}
         placement="bottom-end"
         transition
         disablePortal
@@ -84,18 +81,16 @@ function FilterButton() {
               sx={{
                 width: "100%",
                 marginTop: ".2rem",
-                boxShadow: "2px 4px 5px rgba(0, 0, 0, 0.02)",
+                boxShadow: "0px 0px 3px rgba(0, 0, 0, 0.1)",
               }}
             >
               <ClickAwayListener onClickAway={handleClose}>
-                <MenuList id="split-button-menu" autoFocusItem>
+                <MenuList id="filter-button" autoFocusItem>
                   {options.map((option, index) => (
                     <MenuItem
                       key={option}
                       selected={index === selectedIndex}
-                      onClick={(event) => handleMenuItemClick(event, index)}
-                      sx={{ fontSize: ".9rem" }}
-                    >
+                      onClick={(event) => handleMenuItemClick(event, index)}>
                       {option}
                     </MenuItem>
                   ))}

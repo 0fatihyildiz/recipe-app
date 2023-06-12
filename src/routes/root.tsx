@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import Header from "../components/layout/header";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { amber } from "@mui/material/colors";
+import Footer from "../components/layout/Footer";
 
 const theme = createTheme({
   palette: {
@@ -17,6 +18,7 @@ export default function Root() {
         <div className="content">
           <Outlet />
         </div>
+        <Footer />
       </div>
     </ThemeProvider>
   );

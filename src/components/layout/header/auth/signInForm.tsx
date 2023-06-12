@@ -2,10 +2,11 @@ import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { PrimaryTextField } from "../../../common/material/styles/textField";
 import { PrimaryButton } from "../../../common/material/styles/button";
+import { supabase } from "../../../../lib/helper/supabaseClient";
 
 const SigninSchema = Yup.object().shape({
-  email: Yup.string().email("Invalid email").required("Required"),
-  password: Yup.string().required("Required"),
+  email: Yup.string().email("Invalid email").required("Email cannot be left blank"),
+  password: Yup.string().required("Password cannot be left blank"),
 });
 
 const initialValues = {
@@ -14,8 +15,14 @@ const initialValues = {
 };
 
 export default function SignIn() {
-  const handleSubmit = (values: object) => {
-    console.log(values);
+  const handleSubmit = async (values: { email: string; password: string }) => {
+    const { data, error } = await supabase.auth.signInWithPassword(values)
+    if (error)
+      return alert(error.message)
+
+    if (data)
+      return alert('Login Successful')
+    
   };
 
   return (

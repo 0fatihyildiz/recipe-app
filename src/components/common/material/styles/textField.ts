@@ -19,7 +19,7 @@ const PrimaryTextField = styled(TextField)<TextFieldProps>(() => ({
     },
     ".MuiInputBase-root": {
       borderRadius: "10px",
-    },
+    }
   }));
 
 export { PrimaryTextField }

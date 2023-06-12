@@ -14,7 +14,7 @@ import ErrorPage from "./error-page";
 
 import "virtual:uno.css";
 import "@unocss/reset/tailwind.css";
-import "./index.scss";
+import "./assets/styles/index.scss";
 
 // const Home = React.lazy(() => import("./routes/index"));
 // const MyRecipe = React.lazy(() => import("./routes/myRecipe"));

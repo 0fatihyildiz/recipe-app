@@ -5,7 +5,7 @@
     @apply flex items-center;
 
     .links {
-      @apply ml-100px flex items-center space-x-2;
+      @apply ml-100px hidden md:flex items-center space-x-2;
       
       .link {
         @apply rounded-full #{!important};
@@ -18,5 +18,9 @@
   }
   .actions {
     @apply flex space-x-2;
+
+    .action {
+      @apply md:hidden
+    }
   }
 }
