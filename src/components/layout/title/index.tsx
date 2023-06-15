@@ -9,6 +9,7 @@ import {
   Popper,
 } from "@mui/material";
 import React, { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   title: string;
@@ -18,18 +19,26 @@ interface Props {
 const options = ["New Recipes", "Popular Recipes", "Latest Recipes"];
 
 function FilterButton() {
+  const navigate = useNavigate();
+
   const [open, setOpen] = useState(false);
   const anchorRef = useRef<HTMLButtonElement>(null);
   const [selectedIndex, setSelectedIndex] = useState(1);
-
-  // const handleClick = () => {
-  //   console.info(`You clicked ${options[selectedIndex]}`);
-  // };
 
   function handleMenuItemClick(_event: React.MouseEvent<HTMLLIElement, MouseEvent>,
     index: number) {
     setSelectedIndex(index);
     setOpen(false);
+
+    const searchParams = new URLSearchParams();
+
+    searchParams.set("sort", options[index]);
+
+    navigate(`/?${searchParams}`);
+
+
+    const hasParam = searchParams.get('sort');
+    console.log(hasParam);
   }
 
   const handleToggle = () => {
